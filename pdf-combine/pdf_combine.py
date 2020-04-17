@@ -1,6 +1,6 @@
 ## based on # rotate_pages.py
-
 from PyPDF2 import PdfFileReader, PdfFileWriter
+
 
 def combine_pages(pdf_path, toRotate, toExclude):
     pdf_reader = PdfFileReader(pdf_path)
@@ -15,25 +15,21 @@ def combine_pages(pdf_path, toRotate, toExclude):
         else:
             pdf_writer.addPage(pdf_reader.getPage(page))
 
-
-if __name__ == '__main__':
-    outName = "combined-output.pdf" ## Output file name
-    datoteke = [{"path": "input-file-1.PDF",
-                 "rotate": [22, 40],
-                 "exclude": [34, 44]},
-
-                {"path": "input-file-2.PDF",
-                 "rotate": [],
-                 "exclude": []},
-
-                {"path": "more-files....PDF",
-                 "rotate": [],
-                 "exclude": [6, 8]}]
-
+def combine(outName, inFiles):
+    """
+    Combine multiple PDF-files
+    
+    :param str outName: output path/filename (prefix string with r to make it raw)
+    :param list inFiles: input files as dicts [{"path": r"file1.pdf", "rotate": [22, 40], "exclude": [1,34, 44]}, ...]
+    
+    :raises SyntaxError (unicode error): if paths not prefixed with r
+    """
+    
+    global pdf_writer
     pdf_writer = PdfFileWriter()
 
-    for d in datoteke:
-        combine_pages(d["path"], d["rotate"], d["exclude"])
+    for f in inFiles:
+        combine_pages(f["path"], f["rotate"], f["exclude"])
 
     with open(outName, 'wb') as fh:
         pdf_writer.write(fh)
