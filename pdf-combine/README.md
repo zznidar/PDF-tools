@@ -17,9 +17,9 @@ After `import pdf_combine`, use its `combine(str outName, list inFiles)` functio
 import pdf_combine
 pdf_combine.combine(r"C:\Users\Test\Downloads\combined-output.pdf",  [{"path": r"C:\Users\Test\Downloads\input-file-1.pdf",
                  "rotate90": [22, 40],
-				 "rotate180": [1, 2],
-				 "rotate270": [55, 56, 57, 58],
-				 "exclude": [1,34, 44]},
+                 "rotate180": [1, 2],
+                 "rotate270": [55, 56, 57, 58],
+                 "exclude": [1,34, 44]},
 
                 {"path": r"C:\Users\Test\Downloads\input-file-2.PDF",
                  "rotate90": [],
