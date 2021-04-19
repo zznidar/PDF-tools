@@ -7,21 +7,25 @@ After `import pdf_combine`, use its `combine(str outName, list inFiles)` functio
 * `outName` is a raw string with the path of the output file, e. g. `r"C:\Users\outputfile.pdf"`<br/>
 * `inFiles` is a list of dictionaries with `path`, `rotate` and `exclude` for each, where
   * `path` is a raw string with the path of the output file<br/>
-  * `rotate` is a list of pages (1-based) to rotate for 180 degrees<br/>
+  * `rotate90` _(optional)_ is a list of pages (1-based) to rotate for 90 degrees clockwise<br/>
+  * `rotate180` _(optional)_ is a list of pages (1-based) to rotate for 180 degrees clockwise<br/>
+  * `rotate270` _(optional)_ is a list of pages (1-based) to rotate for 270 degrees clockwise<br/>
   * `exclude` is a list of pages (1-based) to exclude<br/>
   
 ### Example
 ```python
 import pdf_combine
 pdf_combine.combine(r"C:\Users\Test\Downloads\combined-output.pdf",  [{"path": r"C:\Users\Test\Downloads\input-file-1.pdf",
-                 "rotate": [22, 40],
+                 "rotate90": [22, 40],
+				 "rotate180": [1, 2],
+				 "rotate270": [55, 56, 57, 58],
                  "exclude": [1,34, 44]},
 
                 {"path": r"C:\Users\Test\Downloads\input-file-2.PDF",
-                 "rotate": [],
+                 "rotate90": [],
                  "exclude": []},
 
                 {"path": r"C:\Users\Test\Downloads\more-files....PDF",
-                 "rotate": [],
+                 "rotate270": [3],
                  "exclude": [6, 8]}])
 ```
