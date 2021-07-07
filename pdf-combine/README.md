@@ -29,3 +29,6 @@ pdf_combine.combine(r"C:\Users\Test\Downloads\combined-output.pdf",  [{"path": r
                  "rotate270": [3],
                  "exclude": [6, 8]}])
 ```
+
+## Note
+If you are running Python from Windows Command Prompt, please note that cmd [is known to change characters when pasting](https://stackoverflow.com/questions/64707661/cmd-converts-em-dash-to-hyphen-on-pasting-any-workaround), e. g. if you paste a path/filename containing an en-dash (–), cmd will change it to a hyphen (-) without notice and you will get a FileNotFound error.
