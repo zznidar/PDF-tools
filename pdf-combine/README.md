@@ -6,7 +6,7 @@ Combine (merge) multiple PDF-files, rotate some pages for 180 degrees and exclud
 After `import pdf_combine`, use its `combine(str outName, list inFiles)` function, where<br/>
 * `outName` is a raw string with the path of the output file, e. g. `r"C:\Users\outputfile.pdf"`<br/>
 * `inFiles` is a list of dictionaries with `path`, `rotate90`, `rotate180`, `rotate270` and `exclude` for each, where
-  * `path` is a raw string with the path of the output file<br/>
+  * `path` is a raw string with the path of the input file<br/>
   * `rotate90` _(optional)_ is a list of pages (1-based) to rotate for 90 degrees clockwise<br/>
   * `rotate180` _(optional)_ is a list of pages (1-based) to rotate for 180 degrees clockwise<br/>
   * `rotate270` _(optional)_ is a list of pages (1-based) to rotate for 270 degrees clockwise<br/>
